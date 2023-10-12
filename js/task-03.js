@@ -12,3 +12,18 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+function createMarkup(arr, targetElement) {
+  const markup = arr
+    .map(
+      ({ url, alt }) => `<li class="gallery-item">
+    <img src="${url}" alt="${alt}"/>
+    </li>`
+    )
+    .join('');
+
+  targetElement.insertAdjacentHTML('afterbegin', markup);
+}
+
+const gallery = document.querySelector('.gallery');
+createMarkup(images, gallery);
